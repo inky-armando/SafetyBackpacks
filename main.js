@@ -1,11 +1,11 @@
 let alumnos = [
     {
         nombre:"Armando",
-        prioridad: 10
+        prioridad: 1
     },
     {
         nombre:"Daniela",
-        prioridad: 1
+        prioridad: 10
     }
 ]
 alumnos.forEach(alumnos => {
