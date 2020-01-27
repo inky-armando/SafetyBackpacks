@@ -8,7 +8,20 @@ let alumnos = [
         prioridad: 1
     }
 ]
+alumnos.forEach(alumnos => {
+    semaforo(alumnos);
+});
 
-function revisar(alum){
-    console.log(alumnos);
+function semaforo(alum){
+    let revisar = parseInt(Math.random() * 10) + 1;
+    console.log(revisar + "-" + alum.prioridad);
+    if(alum.prioridad >= revisar) {
+        console.log(alum.nombre + " Revisar");
+        alum.prioridad --;
+    } 
+    else{
+        console.log(alum.nombre + " No revisar");
+        alum.prioridad ++;
+     }
+    return revisar;
 }
