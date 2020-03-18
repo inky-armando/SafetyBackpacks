@@ -1,23 +1,16 @@
 {
   "name": "mochilas-seguras",
-  "version": "1.0.0",
-  "description": "Proyecto social para la prevencion de incidentes escolares",
-  "main": "main.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ElArmandoxd/SafetyBackpacks.git"
-  },
-  "author": "Inky Captain",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ElArmandoxd/SafetyBackpacks/issues"
-  },
-  "homepage": "https://github.com/ElArmandoxd/SafetyBackpacks#readme",
   "dependencies": {
-    "johnny-five": "^1.4.0",
-    "node": "^13.6.0"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
   }
 }
