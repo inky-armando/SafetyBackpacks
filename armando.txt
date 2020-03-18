@@ -7,6 +7,8 @@ jhonny-five
 bootstrap
 mongoose
 nodemon
+method-override
+cookie-parser
 
 cuando tengan instalado nodemon, en el package.json pongan esto: 
 
