@@ -1,15 +1,18 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
 var mongoose = require('mongoose');
-var cookieParser = require('cookie-parser');
+var path = require('path');
 var methodOverride = require('method-override');
+var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+//conexion a base de datos
+//mongoose.connect("mongodb://localhost:27017/zombie_school");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
