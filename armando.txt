@@ -1,7 +1,17 @@
 Simon, estuvo chingon, dijeron que no la iba a armar pero simon, la armé mamalon
 
+Todo con su --save al final, si no lo tiene las madreo >:c
+
 express
 jhonny-five
 bootstrap
 mongoose
 nodemon
+
+cuando tengan instalado nodemon, en el package.json pongan esto: 
+
+    "devstart": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "serverstart": "DEBUG=generador:* npm run devstart"
+
+en la seccion de scripts.
