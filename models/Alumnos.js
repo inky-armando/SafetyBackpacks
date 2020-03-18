@@ -1,9 +1,9 @@
-var mongoose = require  ('mongoose');
+var mongoose = require('mongoose');
 
 var modelSchema = mongoose.Schema({
     nombre:{
         type: String,
-        required: [true,"Lanombre es obligatorio"]
+        required: [true,"El nombre es obligatorio"]
     },
     grado:{
         type: String,
@@ -13,6 +13,11 @@ var modelSchema = mongoose.Schema({
             type: String,
             required: [true,"El grupo es obligatorio"],
             enum: ["A", "B", "C"]
+    },
+    prioridad:{
+        type: String,
+        required: [true, "La prioridad es obligatoria"],
+        enum: ["1","2","3","4","5","6","7","8","9","10"]
     }
 });
 

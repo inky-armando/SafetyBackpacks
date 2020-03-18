@@ -12,7 +12,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 //conexion a base de datos
-//mongoose.connect("mongodb://localhost:27017/zombie_school");
+mongoose.connect("mongodb://localhost:27017/safety_backpacks");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

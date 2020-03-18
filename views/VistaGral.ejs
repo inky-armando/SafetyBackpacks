@@ -5,6 +5,7 @@
     <th>nombre</th>
     <th>Grado</th>
     <th>Grupo</th>
+    <th>Prioridad</th>
   </tr>
   <%
 if(viewAlumnos){
@@ -14,10 +15,10 @@ if(viewAlumnos){
     <td><%= alumno.nombre %></td>
     <td><%= alumno.grado %></td>
     <td><%= alumno.grupo %></td>
+    <td><%= alumno.prioridad %></td>
     </tr>
     <%
   });
-  
 }
 %>
 </table>

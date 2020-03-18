@@ -9,7 +9,7 @@ var modelSchema = mongoose.Schema({
             type: String,
             required: [true,"El correo es obligatorio"]
     },
-    contraseña:{
+    contrasena:{
         type: String,
         required: [true,"La contraseña es obligatoria"]
     }
