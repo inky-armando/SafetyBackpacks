@@ -1,0 +1,24 @@
+<h1>Alumnos</h1>
+
+<table class= "table table-strip">
+  <tr>
+    <th>nombre</th>
+    <th>Grado</th>
+    <th>Grupo</th>
+    <th>Prioridad</th>
+  </tr>
+  <%
+if(viewAlumnos){
+  viewAlumnos.forEach(function(alumno){
+    %>
+    <tr>
+    <td><%= alumno.nombre %></td>
+    <td><%= alumno.grado %></td>
+    <td><%= alumno.grupo %></td>
+    <td><%= alumno.prioridad %></td>
+    </tr>
+    <%
+  });
+}
+%>
+</table>

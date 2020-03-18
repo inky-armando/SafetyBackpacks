@@ -1,0 +1,12 @@
+<% include _header %>
+<div class="container">
+    <form action="/revisar" method="GET">
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" name="nombre">
+        </div>
+        <button class="btn btn-primary">Revisar alumno</button>
+    </form>
+    <% include VistaGral %>
+</div>
+<% include _footer %>
