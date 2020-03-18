@@ -5,7 +5,7 @@ let board = new five.Board();
 let alumnos = [
     {
         nombre:"Armando",
-        prioridad: 10
+        prioridad: 5
     }
 ]
 alumnos.forEach(alumnos => {

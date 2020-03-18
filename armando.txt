@@ -1,0 +1,27 @@
+Simon, estuvo chingon, dijeron que no la iba a armar pero simon, la armé mamalon
+
+Todo con su --save al final, si no lo tiene las madreo >:c
+
+express
+jhonny-five
+bootstrap
+mongoose
+nodemon
+method-override
+cookie-parser
+
+cuando tengan instalado nodemon, en el package.json pongan esto: 
+
+    "devstart": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "serverstart": "DEBUG=generador:* npm run devstart"
+
+en la seccion de scripts.
+
+comandos del git, cula a la que se le olviden
+
+    git add -A // prepara todo para hacerle commit
+    git commit -m "Mensaje del commit" //hace commit local de la actualizacion
+    git push //empuja todos los cambios a la linea personal en el repositorio
+
+    git pull origin master //guarda todos los cambios del proyecto en el repositorio local
