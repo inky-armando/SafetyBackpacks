@@ -17,6 +17,6 @@ router.get('/alumnos', function(req,res,next){
       res.render('panelAdmin', {viewAlumnos: Alumnos});
     }
   });
-})
+});
 
 module.exports = router;
