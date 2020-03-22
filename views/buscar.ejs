@@ -1,4 +1,6 @@
+<%include _header%>
 <h1>Alumnos</h1>
+<div class="alert alert-danger" <%=estado%>></div>
 
 <table class= "table table-strip">
   <tr>
@@ -9,18 +11,18 @@
     <th>Acciones</th>
   </tr>
   <%
-if(viewAlumnos){
-  viewAlumnos.forEach(function(alumno){
+if(viewAlumno){
+  viewAlumno.forEach(function(alumno){
     %>
     <tr>
     <td><%= alumno.nombre %></td>
     <td><%= alumno.grado %></td>
     <td><%= alumno.grupo %></td>
     <td><%= alumno.prioridad %></td>
-    <td><a href="/alumno/<%=alumno.id%>"><button class="btn btn-success">Seleccionar</button></a></td>
     </tr>
     <%
   });
 }
 %>
 </table>
+<%include _footer%>

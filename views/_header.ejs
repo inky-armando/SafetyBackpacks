@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+    <nav class="navbar navbar-expand-lg navbar-success bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,4 +22,8 @@
             </li>
           </ul>
         </div>
+        <form class="form-inline my-2 my-lg-0" action="/buscar" method="POST">
+          <input class="form-control mr-sm-2" name="nombreAlum" type="search" placeholder="Ingrese el nombre..." aria-label="Ingrese el nombre...">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar alumno</button>
+        </form>
       </nav>

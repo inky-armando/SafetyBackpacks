@@ -1,0 +1,28 @@
+<%include _header %>
+<div class="row container">
+    <div class="col-md-12 container">
+        <form action="/alumno/revisar/<%= Alumno.id %>" method="POST">
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" name="nombre" value="<%=Alumno.nombre%>" disabled>
+            </div>
+            <div class="form-group">
+                <label for="">Grado</label>
+                <input type="text" class="form-control" name="email" value="<%=Alumno.grado%>" disabled>
+            </div>
+            <div class="form-group">
+                <label for="">Grupo</label>
+                <input type="text" class="form-control" name="tipo" value="<%=Alumno.grupo%>" disabled>
+            </div>
+            <div class="form-group">
+                <label for="">Prioridad</label>
+                <input type="number"min="1" max="10" class="form-control" name="tipo" value="<%=Alumno.prioridad%>" disabled>
+            </div>
+            <button class="btn btn-success"><i class="fas fa-edit"></i>Revisar alumno</button>
+            <button class="btn btn-dark"><i class="fas fa-edit"></i>Siguiente</button>
+            <div class="mensajes" >
+            </div>
+        </form>
+    </div>
+</div>
+<%include _footer %>
