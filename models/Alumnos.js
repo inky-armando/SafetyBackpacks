@@ -19,5 +19,5 @@ var modelSchema = mongoose.Schema({
     }
 });
 
-var Alumno = mongoose.model("Alumno",modelSchema);
-module.exports = Alumno;
+let alumno = mongoose.model("Alumnos", modelSchema);
+module.exports = alumno;

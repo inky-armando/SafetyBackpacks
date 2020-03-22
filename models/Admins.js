@@ -1,19 +1,21 @@
 var mongoose = require  ('mongoose');
 
-var modelSchema = mongoose.Schema({
-    nombre:{
+let modelSchema = mongoose.Schema({
+    nombre: {
         type: String,
-        required: [true,"El nombre es obligatorio"]
+        required: [true, "El nombre del usuario es obligatorio"]
     },
-    correo:{
-            type: String,
-            required: [true,"El correo es obligatorio"]
-    },
-    contrasena:{
+    correo: {
         type: String,
-        required: [true,"La contraseña es obligatoria"]
-    }
+        required: [true, "El correo del usuario es obligatorio"]
+    },
+    contrasena: {
+        type: String,
+        required: [true, "La contraseña es obligatoria"],
+        minlength: [6,"La contraseña es demasiado corta"]
+    },
 });
 
-var Admin = mongoose.model("Admin",modelSchema);
-module.exports = Admin;
+
+let admin = mongoose.model("Admins", modelSchema);
+module.exports = admin;
