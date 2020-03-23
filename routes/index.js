@@ -23,6 +23,9 @@ router.get('/admin', function(req,res,next){
       }
     });
   }
+  else{
+    console.log("intento de inicio sin sesion activa");
+  }
 });
 
 router.post('/login', function(req,res,next){
@@ -53,45 +56,106 @@ router.post('/login', function(req,res,next){
 });
 
 router.get('/alumno/:id',async function(req,res,next){
-  let Alumno = await alumno.findById(req.params.id);
-  res.render('alumnoCheck', {Alumno: Alumno});
+  if(session){
+    let Alumno = await alumno.findById(req.params.id);
+    res.render('alumnoCheck', {Alumno: Alumno});
+  }
+  else{
+    console.log("intento de inicio sin sesion activa");
+    res.redirect('/');
+  }
+  
 });
 
 router.post('/alumno/revisar/:id', async function(req,res,next){
-  let Alumno = await alumno.findById(req.params.id);
-  let board = new five.Board();
-
-  semaforo(Alumno);
-
-  function foco_rojo(){
-    board.on("ready", () => {
-        const leds = new Leds([3, 5]);
-        leds[0].pulse();
+  if(session){
+    let Alumno = await alumno.findById(req.params.id);
+    let board = new five.Board({
+      repl: false
     });
-  }
 
-  function foco_verde(){
-    board.on("ready", () => {
-        const leds = new Leds([3, 5]);
-        leds[1].pulse();
+    semaforo(Alumno);
+
+    function foco_rojo(){
+      board.on("ready", () => {
+          var leds = new Leds([3, 5]);
+          leds[0].on();
+
+          console.log("Rojo");
+          setTimeout(function(){
+            leds[0].off();
+            leds[1].off();
+            alumno.find().exec(function(error, Alumnos) {res.render('VistaGral', {viewAlumnos: Alumnos})});
+            board.on("close", function(){
+              console.log("cerrando tablero");
+            });
+          }, 5000);
+          return;
       });
-  }
-
-  function semaforo(alum){
-    let revisar = parseInt(Math.random() * 10) + 1;
-    console.log(revisar + "-" + alum.prioridad);
-    if(alum.prioridad >= revisar) {
-        console.log(alum.nombre + " Revisar");
-        alum.prioridad --;
-        foco_rojo();
-    } 
-    else{
-        console.log(alum.nombre + " No revisar");
-        alum.prioridad ++;
-        foco_verde();
-     }
-    return revisar;
     }
-})
+
+    function foco_verde(){
+      board.on("ready", () => {
+          var leds = new Leds([3, 5]);
+          leds[1].on();
+
+          console.log("Verde");
+          setTimeout(function(){
+            leds[0].off();
+            leds[1].off();
+            alumno.find().exec(function(error, Alumnos) {res.render('VistaGral', {viewAlumnos: Alumnos})});
+            board.on("close", function(){
+              console.log("cerrando tablero");
+            });
+          }, 5000);
+          return;
+        });
+    }
+
+    async function semaforo(alum){
+      let revisar = parseInt(Math.random() * 10) + 1;
+      console.log(revisar + "-" + alum.prioridad);
+      if(alum.prioridad >= revisar) {
+          console.log(alum.nombre + " Revisar");
+          try{
+            alum.prioridad = (alum.prioridad)/2;
+            if(alum.prioridad < 1){
+              alum.prioridad = 2;
+            }
+            console.log(alum.prioridad);
+            await alum.save();
+          }
+          catch(e){
+            console.log(e.message);
+          }
+          foco_rojo();
+          console.log(alum);
+          console.log(session);
+      } 
+      else{
+          console.log(alum.nombre + " No revisar");
+          try{
+            alum.prioridad = (alum.prioridad)*2;
+            if(alum.prioridad > 10){
+              alum.prioridad = 10;
+            }
+            console.log(alum.prioridad);
+            await alum.save();
+          }
+          catch(e){
+            console.log(e.message);
+          }
+          foco_verde();
+          console.log(alum);
+          console.log(session);
+      }
+      return revisar;
+      }
+    }
+  else{
+    console.log("intento de inicio sin sesion activa");
+    res.redirect('/');
+  }
+});
 
 module.exports = router;
