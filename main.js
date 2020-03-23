@@ -8,14 +8,18 @@ let alumnos = [
         prioridad: 5
     }
 ]
-alumnos.forEach(alumnos => {
-    semaforo(alumnos);
-});
 
+board.on("ready", () => {
+    const leds = new Leds([3, 5]);
+    leds[0].on();
+});
 function foco_rojo(){
     board.on("ready", () => {
         const leds = new Leds([3, 5]);
-        leds[0].pulse();
+        leds[0].on();
+    });
+    board.on("exit", function(close){
+        console.log("Cerrando tablero");
     });
     
 }
@@ -23,8 +27,11 @@ function foco_rojo(){
 function foco_verde(){
     board.on("ready", () => {
         const leds = new Leds([3, 5]);
-        leds[1].pulse();
+        leds[1].on();
       });
+      board.on("exit", function(close){
+        console.log("Cerrando tablero");
+    });
 }
 
 function semaforo(alum){

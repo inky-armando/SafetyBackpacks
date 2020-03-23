@@ -19,10 +19,14 @@
                 <input type="number"min="1" max="10" class="form-control" name="tipo" value="<%=Alumno.prioridad%>" disabled>
             </div>
             <button class="btn btn-success"><i class="fas fa-edit"></i>Revisar alumno</button>
-            <button class="btn btn-dark"><i class="fas fa-edit"></i>Siguiente</button>
             <div class="mensajes" >
             </div>
         </form>
+        <section class="container">
+            <a href="/alumno/revisar/siguiente"> 
+                <button class="btn btn-dark"><i class="fas fa-edit"></i>Siguiente</button>
+            </a>
+        </section>
     </div>
 </div>
 <%include _footer %>
